@@ -1,0 +1,35 @@
+table.units{
+	border:1px solid black;
+	float:right;
+	font-size:18px;
+	line-height:28px;
+}
+table.units th,table.units td{
+	border:1px solid black;
+}
+div{
+	width:20px;
+	height:20px;
+	float:left;
+}
+#datark{
+	background-color: gray;
+}
+#grass{
+	background-color:green;
+}
+#eater{
+	background-color:yellow;
+}
+#pred{
+	background-color:purple;
+}
+#virus{
+	background-color:Deeppink;
+}
+#demon{
+	background-color:red;
+}
+#fire{
+	background-color:orange;
+}
