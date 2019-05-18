@@ -1,18 +1,13 @@
-class Grass extends Liveform{
+var Liveform = require('./Liveform');
+var random = require('./random');
+module.exports = class Grass extends Liveform{
     constructor(x, y) {
-      this.x = x;
-      this.y = y;
+      super(x,y);
       this.multiply = 0;
-      this.directions = [
-        [this.x - 1, this.y - 1],
-        [this.x, this.y - 1],
-        [this.x + 1, this.y - 1],
-        [this.x - 1, this.y],
-        [this.x + 1, this.y],
-        [this.x - 1, this.y + 1],
-        [this.x, this.y + 1],
-        [this.x + 1, this.y + 1]
-      ];
+    }
+    ChooseCell(character){
+      super.getNewCoordinates();
+      return super.ChooseCell(character);
     }
     mul() {
       this.multiply++;
@@ -28,4 +23,5 @@ class Grass extends Liveform{
         this.multiply = 0;
       }
     }
+    
   }

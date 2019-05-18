@@ -1,11 +1,10 @@
-class GrassEater extends Liveform{
+var Liveform = require('./Liveform');
+var random = require('./random')
+module.exports = class GrassEater extends Liveform{
     constructor(x, y) {
-      this.x = x;
-      this.y = y;
+      super(x,y);
       this.multiply = 0;
-      this.energy = 15;
-      // this.index = index;
-      this.directions = []
+      this.energy = 10;
     }
     move() {
       var Cells = this.ChooseCell(0);
@@ -22,6 +21,10 @@ class GrassEater extends Liveform{
         this.x = x;
         this.y = y;
       }
+    }
+    ChooseCell(character){
+      super.getNewCoordinates();
+      return super.ChooseCell();
     }
     eat() {
       
