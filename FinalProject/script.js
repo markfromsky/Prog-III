@@ -5,7 +5,43 @@ function setup(){
 	var matrix = [];
 	var grasscount = document.getElementById('grassCount');
 	var Eatercount = document.getElementById('EaterCount');
-	socket.on('data',drawCreauters);
+
+socket.on('data',drawCreatures);
+function drawCreatures(data){
+
+matrix = data.matrix;
+
+createCanvas(matrix[0].length * side,matrix.length * side);
+
+background('gray');
+for(var i = 0;i < matrix.length; i++){
+	for(var j = 0; j <matrix[i].length;j++){
+		if (matrix[i][j] == 1) {
+			fill("green");
+			rect(j * side, i * side, side, side);
+		} else if (matrix[i][j] == 2) {
+			fill("yellow");
+			rect(j * side, i * side, side, side);
+		} else if (matrix[i][j] == 0) {
+			fill('gray');
+			rect(j * side, i * side, side, side);
+		} else if (matrix[i][j] == 3) {
+			fill('purple');
+			rect(j * side, i * side, side, side);
+		} else if (matrix[i][j] == 4) {
+			fill('DeepPink');
+			rect(j * side, i * side, side, side);
+		} else if (matrix[i][j] == 5) {
+			fill('red');
+			rect(j * side, i * side, side, side);
+		}
+		else if(matrix[i][j] == 6){
+			fill('orange');
+			rect(j*side,i*side,side,side);
+		}
+	}
+}
+}
 }
 // function genetareMatrix(lengthY, lengthX, number) {
 

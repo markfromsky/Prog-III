@@ -5,7 +5,7 @@ module.exports = class Grass extends Liveform{
       super(x,y);
       this.multiply = 0;
     }
-    ChooseCell(character){
+    chooseCell(character){
       super.getNewCoordinates();
       return super.ChooseCell(character);
     }
