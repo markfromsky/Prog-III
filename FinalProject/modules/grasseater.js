@@ -24,7 +24,7 @@ module.exports = class GrassEater extends Liveform{
     }
     ChooseCell(character){
       super.getNewCoordinates();
-      return super.ChooseCell();
+      return super.ChooseCell(character);
     }
     eat(){
       if (this.energy <= 0) {
@@ -44,11 +44,12 @@ module.exports = class GrassEater extends Liveform{
     
           this.multiply++;
           this.energy++;
-          grasscounter--;
+          
 
           for (var i in grassArr) {
             if (x == grassArr[i].x && y == grassArr[i].y) {
               grassArr.splice(i, 1);
+              grasscounter--;
             }
           }
     

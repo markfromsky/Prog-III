@@ -4,7 +4,7 @@ module.exports = class Predator extends Liveform {
   constructor(x, y) {
     super(x, y);
     this.multiply = 0;
-    this.energy = 5;
+    this.energy = 40;
   }
   ChooseCell(character) {
     super.getNewCoordinates();

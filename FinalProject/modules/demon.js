@@ -1,9 +1,9 @@
+var firepit = require('./firepit')
 var Liveform = require('./Liveform.js')
 var random = require('./random')
 module.exports = class Demon extends Liveform{
     constructor(x,y){
-      this.x = x;
-      this.y = y;
+      super(x,y);
       this.movecount = 0;
     }
     ChooseCell(character){

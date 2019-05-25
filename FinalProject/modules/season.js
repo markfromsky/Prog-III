@@ -3,12 +3,12 @@ module.exports = class seasonhelper{
         this.seasoncounter = 0;
     }
     Count(){
+        this.seasoncounter++;
         if(this.seasoncounter == 3){
             season++;
         }
         else if(this.seasoncounter == 3 && season == 3){
             season = 0;
         }
-        this.counter++;
     }
 }

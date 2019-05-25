@@ -12,11 +12,11 @@ socket.on('data',drawCreatures);
 function drawCreatures(data){
 	
 
-Grasscountelem.innerText = grasscounter;
-Eatercountelem.innerText = eatercounter;
-Predcountelem.innerText = predcounter;
-seasonshower.innertext = 'hima' + seasonname;
-
+Grasscountelem.innerText = data.xotcount;
+Eatercountelem.innerText = data.eatcount;
+Predcountelem.innerText = data.prdcount;
+seasonshower.innerText = 'հիմա ' +' '+data.seasonname +' '+'է';
+console.log(data.season)
 matrix = data.matrix;
 season = data.season;
 
@@ -26,17 +26,17 @@ background('gray');
 for(var i = 0;i < matrix.length; i++){
 	for(var j = 0; j <matrix[i].length;j++){
 		if (matrix[i][j] == 1) {
-			if(season = 0){
+			if(season == 0){
+				fill('#6cf213');
+			}
+			else if(season == 1){
+				fill('#e08011');
+			}
+			else if(season == 2){
+				fill('#06a885');
+			}
+			else if(season == 3){
 				fill('green');
-			}
-			else if(season = 1){
-				fill('#c2e311');
-			}
-			else if(season = 2){
-				fill('#cfd2bd');
-			}
-			else if(season = 3){
-				fill('a8bf2f');
 			}
 			rect(j * side, i * side, side, side);
 		} else if (matrix[i][j] == 2) {
@@ -52,7 +52,12 @@ for(var i = 0;i < matrix.length; i++){
 			fill('DeepPink');
 			rect(j * side, i * side, side, side);
 		} else if (matrix[i][j] == 5) {
-			fill('red');
+			if(season != 3){
+				fill('red');
+			}
+			else{
+				fill('lightblue');
+			}
 			rect(j * side, i * side, side, side);
 		}
 		else if(matrix[i][j] == 6){

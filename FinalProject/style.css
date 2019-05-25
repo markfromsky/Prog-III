@@ -15,8 +15,13 @@ div{
 #datark{
 	background-color: gray;
 }
-#grass{
+#grass1,grass2,grass3,grass4{
 	background-color:green;
+	width:5px;
+	height:5px;
+}
+.grassblock{
+	
 }
 #eater{
 	background-color:yellow;

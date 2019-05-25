@@ -45,7 +45,6 @@ module.exports = class Virus extends Liveform{
         eatercounter--;
       }
       else if(matrix[y][x] == 3){
-         console.log("cell");
         for(var i in predArr){
           if(x == predArr[i].x && y == predArr[i].y){
             predArr.splice(i,1);
@@ -84,12 +83,11 @@ module.exports = class Virus extends Liveform{
       matrix[this.y][this.x] = 0;
       this.y = y;
       this.x = x;
-  
     }
   }
   }
     die() {
-      matrix[this.y][this.x] = 0;
+      matrix[this.y][this.x] = 4;
       for (var i in VirusArr) {
         if (this.x == VirusArr[i].x && this.y == VirusArr[i].y) {
           VirusArr.splice(i, 1);

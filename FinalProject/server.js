@@ -9,7 +9,7 @@ grasscounter = 0;
 eatercounter = 0;
 predcounter = 0;
 season = 0;
-seasonname;
+seasonchange = 0;
 
 var random = require('./modules/random');
 
@@ -21,7 +21,7 @@ function matrixgen(size,grass,eater,pred,demon,Virus){
         }
     }
     for (let i = 0; i < grass; i++) {
-        let X = Math.floor(random(size)); // 0 - 39
+        let X = Math.floor(random(size));
         let Y = Math.floor(random(size));
         matrix[Y][X] = 1;
     }
@@ -46,7 +46,7 @@ function matrixgen(size,grass,eater,pred,demon,Virus){
         matrix[Y][X] = 4;
     }
 }
-matrixgen(30,10,5,2,1,12);
+matrixgen(30,20,7,5,2,12)
 
 var Liveform = require('./modules/Liveform.js');
 var grass = require('./modules/grass.js');
@@ -54,7 +54,7 @@ var eater = require('./modules/grasseater.js');
 var pred = require('./modules/pred.js');
 var demon = require('./modules/demon.js');
 var Virus = require('./modules/Virus');
-var seasoncount = require('./modules/season');
+
 
 var express = require('express');
 var app = express();
@@ -113,14 +113,14 @@ function game(){
             predArr[i].eat();
         }
     }
-    if(demonArr[0] !== undefined && season != 2){
+    if(demonArr[0] !== undefined && season != 3){
         for(var i in demonArr){
             demonArr[i].destroy();
         }
     }
     if(VirusArr[0] !== undefined){
         for(var i in VirusArr){
-            VirusArr[i].explodee();
+            VirusArr[i].move();
         }
     }
     if(pitArr[0] !== undefined){
@@ -128,26 +128,34 @@ function game(){
             pitArr[i].burn();
         }
     }
-    seasoncount.Count();
-    if(season = 0){
-		seasonname = 'amar';
-	}
-	else if(season = 1){
-		seasonname = 'ashun';
-	}
-	else if(season = 2){
-		seasonname = 'dzmer'
-	}
-	else if(season = 3){
-		seasonname = 'garun'
-	}
+    seasonchange++;
+    if(seasonchange >= 10){
+        season++;
+        seasonchange = 0;
+    }
+    if(season >= 4){
+        season = 0;
+        seasonchange = 0;
+    }
 
+    if(season == 0){
+		seasonname = 'ամառ';
+	}
+	else if(season == 1){
+		seasonname = 'աշուն';
+	}
+	else if(season == 2){
+		seasonname = 'ձմեռ';
+	}
+	else if(season == 3){
+		seasonname = 'գարուն';
+	}
     var sendData = {
         matrix: matrix,
         xotcount: grasscounter,
         eatcount: eatercounter,
         prdcount: predcounter,
-        season : season,
+        season: season,
         seasonname: seasonname
     }
 
