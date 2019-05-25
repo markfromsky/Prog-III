@@ -27,6 +27,7 @@ module.exports = class Demon extends Liveform{
               break;
             }
           }
+          eatercounter--;
         }
         if(matrix[y][x] == 3){
           for(var i in predArr){
@@ -37,6 +38,7 @@ module.exports = class Demon extends Liveform{
               break;
             }
           }
+          predcounter--;
         }
     }
     else{
@@ -55,6 +57,7 @@ module.exports = class Demon extends Liveform{
           for(var i in grassArr){
             if(x == grassArr[i].x && y == grassArr[i].y){
                 grassArr.splice(i, 1);
+                grasscounter--;
             }
           }
         }

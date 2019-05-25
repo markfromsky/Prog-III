@@ -13,6 +13,7 @@ module.exports = class Grass extends Liveform{
       this.multiply++;
       var emptyCells = this.chooseCell(0);
       var newCell = random(emptyCells);
+      grasscounter++;
   
       if (this.multiply == 6 && newCell) {
         var x = newCell[0];

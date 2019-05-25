@@ -46,7 +46,7 @@ module.exports = class Predator extends Liveform {
           EaterArr.splice(i, 1);
         }
       }
-
+      eatercounter--;
       if (this.multiply >= 5) {
         this.mul();
         this.multiply = 0;
@@ -79,13 +79,15 @@ module.exports = class Predator extends Liveform {
       predArr.push(newPredator);
 
       matrix[y][x] = 3;
+      predcounter++;
     }
   }
   die() {
     matrix[this.y][this.x] = 0;
     for (var i in predArr) {
       if (this.x == predArr[i].x && this.y == predArr[i].y) {
-        predArr.splice(i, 1)
+        predArr.splice(i, 1);
+        predcounter--;
       }
     }
   }

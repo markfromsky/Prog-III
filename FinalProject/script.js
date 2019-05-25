@@ -3,13 +3,22 @@ function setup(){
 	var socket = io();
 	var side = 30;
 	var matrix = [];
-	var grasscount = document.getElementById('grassCount');
-	var Eatercount = document.getElementById('EaterCount');
+	var Grasscountelem = document.getElementById('grasscount');
+	var Eatercountelem = document.getElementById('grasseatercount');
+	var Predcountelem = document.getElementById('predcount');
+	var seasonshower = document.getElementById('season');
 
 socket.on('data',drawCreatures);
 function drawCreatures(data){
+	
+
+Grasscountelem.innerText = grasscounter;
+Eatercountelem.innerText = eatercounter;
+Predcountelem.innerText = predcounter;
+seasonshower.innertext = 'hima' + seasonname;
 
 matrix = data.matrix;
+season = data.season;
 
 createCanvas(matrix[0].length * side,matrix.length * side);
 
@@ -17,7 +26,18 @@ background('gray');
 for(var i = 0;i < matrix.length; i++){
 	for(var j = 0; j <matrix[i].length;j++){
 		if (matrix[i][j] == 1) {
-			fill("green");
+			if(season = 0){
+				fill('green');
+			}
+			else if(season = 1){
+				fill('#c2e311');
+			}
+			else if(season = 2){
+				fill('#cfd2bd');
+			}
+			else if(season = 3){
+				fill('a8bf2f');
+			}
 			rect(j * side, i * side, side, side);
 		} else if (matrix[i][j] == 2) {
 			fill("yellow");
