@@ -7,7 +7,8 @@ function setup(){
 	var Eatercountelem = document.getElementById('grasseatercount');
 	var Predcountelem = document.getElementById('predcount');
 	var seasonshower = document.getElementById('season');
-
+	var seasoncolor = document.getElementById('grass')
+	var demoncolor = document.getElementById('demon');
 socket.on('data',drawCreatures);
 function drawCreatures(data){
 	
@@ -28,15 +29,19 @@ for(var i = 0;i < matrix.length; i++){
 		if (matrix[i][j] == 1) {
 			if(season == 0){
 				fill('#6cf213');
+				seasoncolor.style.backgroundColor = '#6cf213';
 			}
 			else if(season == 1){
 				fill('#e08011');
+				seasoncolor.style.backgroundColor = '#e08011';
 			}
 			else if(season == 2){
 				fill('#06a885');
+				seasoncolor.style.backgroundColor = '#06a885';
 			}
 			else if(season == 3){
 				fill('green');
+				seasoncolor.style.backgroundColor = 'green';
 			}
 			rect(j * side, i * side, side, side);
 		} else if (matrix[i][j] == 2) {
@@ -54,9 +59,11 @@ for(var i = 0;i < matrix.length; i++){
 		} else if (matrix[i][j] == 5) {
 			if(season != 3){
 				fill('red');
+				demoncolor.style.backgroundColor = 'red';
 			}
 			else{
 				fill('lightblue');
+				demoncolor.style.backgroundColor = 'lightblue';
 			}
 			rect(j * side, i * side, side, side);
 		}

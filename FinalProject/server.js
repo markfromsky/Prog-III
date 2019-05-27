@@ -46,7 +46,7 @@ function matrixgen(size,grass,eater,pred,demon,Virus){
         matrix[Y][X] = 4;
     }
 }
-matrixgen(30,20,7,5,2,12)
+matrixgen(15,10,4,2,1,6)
 
 var Liveform = require('./modules/Liveform.js');
 var grass = require('./modules/grass.js');
